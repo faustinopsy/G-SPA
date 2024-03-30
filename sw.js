@@ -1,6 +1,9 @@
-const CACHE_NAME = 'app-cache-v10';
+const CACHE_NAME = 'app-cache-v11';
 const STATIC_ASSETS = [
     './manifest.json',
+    './assets/img/logo192.png',
+    './assets/img/logo512.png',
+    './assets/img/logo2880.png',
     './index.html',
     './favicon.ico',
     './robots.txt',
@@ -18,7 +21,6 @@ const STATIC_ASSETS = [
     './assets/img/config.webp',
     './assets/img/f.webp',
     './assets/img/ss.webp',
-    './assets/img/logo.png',
     './assets/css/w3.css',
     './assets/js/App.js',
     './assets/js/router.js',
@@ -71,6 +73,8 @@ self.addEventListener('activate', event => {
     })
   );
 });
+
+
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -202,5 +206,12 @@ self.addEventListener('message', event => {
 //   }
 // });
 
-  
+self.addEventListener('push', event => {
+  const data = event.data.json();
+  self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: data.icon
+  });
+});
+
   

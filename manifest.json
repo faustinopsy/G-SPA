@@ -1,22 +1,52 @@
 {
   "name": "SPA-Evolution",
-  "short_name": "SPA-Evolution",
+  "short_name": "gspa",
+  "scope": "/",
+  "start_url": "/gspa",
+  "display_override": ["window-controls-overlay"],
+  "display": "fullscreen",
+  "description": "Modelo de PWA",
+  "lang": "pt-BR",
+  "dir": "auto",
   "theme_color": "#000000",
   "background_color": "#000000",
-  "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
-  "lang": "pt-BR",
-  "orientation": "portrait",
-  "prefer_related_applications": false,
-    "fcm_sender_id": "000000000",
+  "orientation": "any",
+  "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52e9",
+  
   "icons": [
     {
-      "src": "assets/img/logo.png",
+      "src": "assets/img/logo512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/img/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/img/logo2880.png",
+      "sizes": "2880x1800",
+      "type": "image/png",
+      "description": "A imagem da abertura da página"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://faustinopsy.github.io/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name":"Modelo de SPA completa",
+      "url":"https://faustinopsy.github.io/",
+      "description":"um modelo de SPA PWA"
     }
   ]
-  
-}
+  }
