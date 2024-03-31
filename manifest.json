@@ -10,9 +10,8 @@
   "dir": "auto",
   "theme_color": "#000000",
   "background_color": "#000000",
-  "orientation": "any",
+  "orientation": "portrait",
   "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52e9",
-  
   "icons": [
     {
       "src": "assets/img/logo512.png",
@@ -41,12 +40,18 @@
       "url": "https://faustinopsy.github.io/manifest.json"
     }
   ],
-  "prefer_related_applications": false,
-  "shortcuts": [
-    {
-      "name":"Modelo de SPA completa",
-      "url":"https://faustinopsy.github.io/",
-      "description":"um modelo de SPA PWA"
-    }
-  ]
+  "categories": ["webapp", "template", "navigation"],
+  "prefer_related_applications": true,
+  "id": "SPA-PWA",
+  "share_target": {
+    "method": "GET",
+    "params": {
+      "url": "https://faustinopsy.github.io/gspa/",
+      "title": "modelo SPA",
+      "text": "modelo SPA e PWA",
+      "files": []
+    },
+    "action": "/gspa"
   }
+}
+  
