@@ -45,6 +45,7 @@ O propósito é guiar estudantes em um desenvolvimento moderno, onde a performan
 ### [SPA-10-evolucao-OOP-notificaNews](https://github.com/faustinopsy/gspa/tree/SPA-10-evolucao-OOP-notificaNews)
 - Adicionadas notificação via servicework.
 - Versão final final com experimento de notificação sem backend, apenas para notificar sobre novidades e atualizações.
+
 ## O projeto gSPA
 
 ### Single Page Application (SPA) com JavaScript Puro e Modularização
@@ -69,9 +70,13 @@ Em resumo, este projeto oferece uma introdução abrangente à construção de S
 
 ---
 
+
+Este projeto é apenas um exemplo modelo para expansão e estudos, mas mostra a evolução passo a passo de um projeto de Single Page Application (SPA/PWA) cache otimizado e SEO otimizado, demonstrando como cada nova versão adiciona funcionalidades e melhorias.
+
 Este projeto é apenas um exemplo modelo para expansão e estudos, mas mostra a evolução passo a passo de um projeto de Single Page Application (SPA/PWA) cache otimizado e SEO otimizado, demonstrando como cada nova versão adiciona funcionalidades e melhorias.
 
 
 ![Métricas do pagespeed da 10ª versão após algumas otimizações ](pagespeed.png) "pagespeed")
 
 https://pagespeed.web.dev/analysis/https-faustinopsy-github-io-gspa/0rem44601m?form_factor=mobile
+

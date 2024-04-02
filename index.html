@@ -2,14 +2,39 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src 'self';
+    img-src 'self' data:;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
+    connect-src 'self';
+    worker-src 'self';
+    manifest-src 'self'; 
+    child-src 'none';
+    upgrade-insecure-requests;
+    ">
     <title>Mini SPA</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="assets/css/w3.css">
+    <meta name="theme-color" content="#000000">
+	<link rel="manifest" href="./manifest.json">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link rel="sortcut icon" href="./favicon.ico" type="image/jpg">
     <meta name="description" content="Exemplo de SPA em JavaScript puro">
+    <script type='module' src="assets/js/PWAInstaller.js"></script>
+<link rel="manifest" href="manifest.json" />
+<script type='module' src="assets/js/Atualizacoes.js"></script>
 </head>
 <body>
+    <div id="left-panel" class="panel" style="transform: translateX(-100%); display: none;"></div>
+    <div id="right-panel" class="panel" style="transform: translateX(100.03%); display: none;"></div>
+    <img src="assets/img/f.webp" id="star" style="transform: translate(-50%, -50%) scale(0.8); display: none;">
+    <img src="assets/img/ss.webp" id="star2" style="transform: translate(-50%, -50%) scale(0.5); display: none;">
     <header  id="nav"></header>
-    <main class="w3-container" id="main-content"></main>
-    <script type='module' src="script.js"></script>
+    <main class="w3-container" id="app"></main>
+    <script type='module' src="assets/js/App.js"></script>
 </body>
 </html>

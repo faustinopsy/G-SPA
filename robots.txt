@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://faustinopsy.github.io/gspa/sitemap.xml
