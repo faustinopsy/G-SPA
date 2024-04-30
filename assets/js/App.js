@@ -47,7 +47,7 @@ class App {
             await this.componenteAtual.afterRender();
         }
         this.atualizarMeta(rotas[rotaAtual].meta);
-        document.documentElement.scrollTop = 0;
+        window.scrollTo({top:0,behavior:'instant'});
     }
     
 }
