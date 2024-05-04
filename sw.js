@@ -75,51 +75,41 @@ self.addEventListener('activate', event => {
 });
 
 
-
+const recursos = [
+  './assets/json/postagens.json',
+  './assets/json/slides.json',
+  './assets/i18n/en.json',
+  './assets/i18n/es.json',
+  './assets/i18n/pt.json',
+  './assets/json/atualizacoes.json',
+  // 'api/atualizacao.php' 
+];
 self.addEventListener('install', event => {
   event.waitUntil(
       caches.open(CACHE_NAME).then(async cache => {
           try {
               await cache.addAll(STATIC_ASSETS);
-              const jsonURL = './assets/json/postagens.json';
-              const jsonResponse = await fetch(jsonURL);
-              if (jsonResponse.ok) {
-                await cache.put(jsonURL, jsonResponse);
+              const fetchPromises = recursos.map(url => fetch(url));
+              const responses = await Promise.allSettled(fetchPromises);
+
+              const falhaurl = [];
+
+              for (let i = 0; i < responses.length; i++) {
+                  const response = responses[i];
+                  if (response.status === 'fulfilled' && response.value.ok) {
+                      await cache.put(recursos[i], response.value);
+                  } else {
+                      falhaurl.push(recursos[i]);
+                  }
               }
-              const slidesURL = './assets/json/slides.json';
-              const slidesResponse = await fetch(slidesURL);
-              if (slidesResponse.ok) {
-                await cache.put(slidesURL, slidesResponse);
+
+              if (falhaurl.length > 0) {
+                  console.error('Erro durante o cache.addAll: ', falhaurl);
               }
-              const enURL = './assets/i18n/en.json';
-              const enResponse = await fetch(enURL);
-              if (enResponse.ok) {
-                await cache.put(enURL, enResponse);
-              }
-              const esURL = './assets/i18n/es.json';
-              const esResponse = await fetch(esURL);
-              if (esResponse.ok) {
-                await cache.put(esURL, esResponse);
-              }
-              const ptURL = './assets/i18n/pt.json';
-              const ptResponse = await fetch(ptURL);
-              if (ptResponse.ok) {
-                await cache.put(ptURL, ptResponse);
-              }
-               const phpURL = './assets/json/atualizacoes.json';
-              const phpResponse = await fetch(phpURL);
-              if (phpResponse.ok) {
-                await cache.put(phpURL, phpResponse);
-              }
-              // const phpURL = 'api/atualizacao.php';
-              // const phpResponse = await fetch(phpURL);
-              // if (phpResponse.ok) {
-              //   await cache.put(phpURL, phpResponse);
-              // }
-          } catch (error) {
-              console.error("Erro durante o cache.addAll: ", error);
-              throw error;
-          }
+                } catch (error) {
+                    console.error("Erro durante o cache.addAll: ", error);
+                    throw error;
+                }
       })
   );
 });
